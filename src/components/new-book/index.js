@@ -26,6 +26,7 @@ export const AddNewBook = () => {
     setNewBookImageURL('');
     setNewBookStatus('');
     setNewBookTitle('');
+    setNewBookForm('');
   };
 
   const handleClearAndCloseForm = async () => {

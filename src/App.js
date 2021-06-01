@@ -1,18 +1,18 @@
 import { Switch, Route } from 'react-router-dom';
 import { NavBar } from './components/navbar';
-import { BooksToRead } from './components/books-to-read';
+import { NotStartedBooks } from './components/not-started-books';
 import { BooksInProgress } from './components/books-in-progress';
-import { ReadBooks } from './components/read-books';
+import { FinishedBooks } from './components/finished-books';
 import { useBooksContext } from './lib/books-context';
 
 export const App = () => {
-  const { booksList, editBookStatus} = useBooksContext();
+  const { booksList, editBookStatus } = useBooksContext();
   return (
     <div>
       <NavBar />
       <Switch>
         <Route exact path='/'>
-          <BooksToRead
+          <NotStartedBooks
             booksList={booksList}
             editBookStatus={editBookStatus}
           />
@@ -23,8 +23,8 @@ export const App = () => {
             editBookStatus={editBookStatus}
           />
         </Route>
-        <Route path='/read'>
-          <ReadBooks booksList={booksList} editBookStatus={editBookStatus} />
+        <Route path='/finished'>
+          <FinishedBooks booksList={booksList} editBookStatus={editBookStatus} />
         </Route>
       </Switch>
     </div>

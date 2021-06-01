@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { Input, Menu } from 'semantic-ui-react';
 
 export const NavBar = () => {
-  const {debouncedChangeHandler} = useBooksContext()
-  const [activeItem, setActiveItem] = useState('Books To Read');
+  const { debouncedChangeHandler } = useBooksContext();
+  const [activeItem, setActiveItem] = useState('Books Not Started');
   const handleItemClick = (_, { name }) => setActiveItem(name);
   return (
     <Menu pointing secondary style={{ marginTop: 5 }}>
@@ -21,8 +21,8 @@ export const NavBar = () => {
           style={{ paddingBottom: 15 }}
           as={Link}
           to={'/'}
-          name='Books To Read'
-          active={activeItem === 'Books To Read'}
+          name='Books Not Started'
+          active={activeItem === 'Books Not Started'}
           onClick={handleItemClick}
         />
         <Menu.Item
@@ -36,9 +36,9 @@ export const NavBar = () => {
         <Menu.Item
           style={{ paddingBottom: 15 }}
           as={Link}
-          to={'/read'}
-          name='Read Books'
-          active={activeItem === 'Read Books'}
+          to={'/finished'}
+          name='Finished Books'
+          active={activeItem === 'Finished Books'}
           onClick={handleItemClick}
         />
       </Menu.Menu>

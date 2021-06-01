@@ -2,7 +2,7 @@ import { useBooksContext } from '../../lib/books-context';
 import { Book } from '../book';
 import { AddNewBook } from '../new-book';
 
-export const BooksToRead = ({ booksList, editBookStatus, addNewBook }) => {
+export const NotStartedBooks = ({ booksList, editBookStatus, addNewBook }) => {
   const { query } = useBooksContext();
   if (booksList === undefined) return <AddNewBook />;
   return (

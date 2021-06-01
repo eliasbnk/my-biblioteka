@@ -59,7 +59,7 @@ export const Book = ({
               onClick={
                 buttonActionOne === 'completed'
                   ? handleCompleted
-                  : buttonActionOne === 'reading'
+                  : buttonActionOne === 'read'
                   ? handleReading
                   : buttonActionOne === 're-read'
                   ? handleReRead
@@ -68,7 +68,11 @@ export const Book = ({
                   : alert(`An Error Occured`)
               }
             >
-              {buttonActionOne}
+              {buttonActionOne === 'read' && book?.form === 'audio'
+                ? 'listen'
+                : buttonActionOne === 're-read' && book?.form === 'audio'
+                ? 're-listen'
+                : buttonActionOne}
             </Button>
           }
           {buttonActionTwo === 'completed' ? (

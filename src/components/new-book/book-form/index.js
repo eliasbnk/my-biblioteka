@@ -1,6 +1,6 @@
-import { Button, Form, Header, Icon, Modal } from 'semantic-ui-react'
-import { statusOptions } from '../../../utils/status'
-
+import { Button, Form, Header, Icon, Modal } from 'semantic-ui-react';
+import { formOptions } from '../../../utils/form';
+import { statusOptions } from '../../../utils/status';
 
 export const BookForm = ({
   showModal,
@@ -16,16 +16,16 @@ export const BookForm = ({
   handleBookTitle,
   bookStatus,
   handleBookStatus,
-modalActionButton
-
+  modalActionButton,
+  bookForm,
+  handleBookForm,
 }) => {
-
   return (
     <Modal
       closeIcon
       open={showModal}
       trigger={
-        <Button >
+        <Button>
           <Icon name='add' /> Add New Book
         </Button>
       }
@@ -56,6 +56,7 @@ modalActionButton
             </Form.Field>
           </Form.Group>
 
+          <Form.Group widths='equal'>
             <Form.Field>
               <Form.Select
                 fluid
@@ -66,9 +67,20 @@ modalActionButton
                 onChange={(_, { value }) => handleBookStatus(value)}
               />
             </Form.Field>
-
+            <Form.Field>
+              <Form.Select
+                fluid
+                label='Book Form'
+                value={bookForm}
+                options={formOptions}
+                placeholder={bookForm}
+                onChange={(_, { value }) => handleBookForm(value)}
+              />
+            </Form.Field>
+          </Form.Group>
           <Form.Field>
             <Form.Input
+              fluid
               label='Image URL'
               value={bookImageURL}
               placeholder={bookImageURL}
@@ -79,7 +91,5 @@ modalActionButton
       </Modal.Content>
       <Modal.Actions>{modalActionButton}</Modal.Actions>
     </Modal>
-  )
-}
-
-
+  );
+};

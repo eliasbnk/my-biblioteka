@@ -9,12 +9,14 @@ export const AddNewBook = () => {
   const [newBookImageURL, setNewBookImageURL] = useState('');
   const [newBookStatus, setNewBookStatus] = useState('');
   const [newBookTitle, setNewBookTitle] = useState('');
+  const [newBookForm, setNewBookForm] = useState('');
   const [showModal, setShowModal] = useState(false);
 
   const handleBookAuthor = (value) => setNewBookAuthor(value);
   const handleBookImageURL = (value) => setNewBookImageURL(value);
   const handleBookStatus = (value) => setNewBookStatus(value);
   const handleBookTitle = (value) => setNewBookTitle(value);
+  const handleBookForm = (value) => setNewBookForm(value);
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
@@ -42,6 +44,7 @@ export const AddNewBook = () => {
         imageURL: newBookImageURL,
         status: newBookStatus,
         title: newBookTitle,
+        form: newBookForm,
       });
     } catch ({ message }) {
       alert(`Error @ handleAddNewBook, Error:${message}`);
@@ -72,6 +75,8 @@ export const AddNewBook = () => {
         handleBookTitle={handleBookTitle}
         bookStatus={newBookStatus}
         handleBookStatus={handleBookStatus}
+        bookForm={newBookForm}
+        handleBookForm={handleBookForm}
         modalActionButton={
           <Button positive onClick={handleAddNewBook}>
             Add Book

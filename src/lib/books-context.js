@@ -43,19 +43,19 @@ export const BooksContextProvider = ({ children }) => {
     }
   };
 
-   const removeBook = async (bookID) => {
-     try {
-       await db.collection('books').doc(bookID).delete();
-     } catch ({ message }) {
-       alert(`Error @ removeBook, Error:${message}`);
-     } finally {
-       await fetchBooks();
-     }
-   };
-
+  const removeBook = async (bookID) => {
+    try {
+      await db.collection('books').doc(bookID).delete();
+    } catch ({ message }) {
+      alert(`Error @ removeBook, Error:${message}`);
+    } finally {
+      await fetchBooks();
+    }
+  };
 
   const changeHandler = (event) => {
-    setQuery(event.target.value);
+    setQuery(event.target.value.toLowerCase());
+
   };
 
   const debouncedChangeHandler = useMemo(

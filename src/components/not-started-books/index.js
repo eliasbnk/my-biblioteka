@@ -26,7 +26,7 @@ export const NotStartedBooks = ({ booksList, editBookStatus, addNewBook }) => {
                 <Book
                   book={curr}
                   editBookStatus={editBookStatus}
-                  buttonActionOne={'read'}
+                  buttonActionOne={'reading'}
                   buttonActionTwo={'completed'}
                 />
               </div>,

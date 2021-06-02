@@ -7,6 +7,13 @@ export const BooksContext = createContext({});
 export const BooksContextProvider = ({ children }) => {
   const [booksList, setBooksList] = useState([]);
   const [query, setQuery] = useState('');
+  const [notStartedBookCount, setNotStartedBookCount] = useState(0);
+  const [inProgressBookCount, setInProgressBookCount] = useState(0);
+  const [finishedBookCount, setFinishedBookCount] = useState(0);
+
+  const handleNotStartedBookCount = (value) => setNotStartedBookCount(value);
+  const handleInProgressBookCount = (value) => setInProgressBookCount(value);
+  const handleFinishedBookCount = (value) => setFinishedBookCount(value);
 
   const fetchBooks = async () => {
     try {
@@ -64,6 +71,12 @@ export const BooksContextProvider = ({ children }) => {
   );
 
   const context = {
+    notStartedBookCount,
+    inProgressBookCount,
+    finishedBookCount,
+    handleNotStartedBookCount,
+    handleInProgressBookCount,
+    handleFinishedBookCount,
     query,
     booksList,
     removeBook,
@@ -81,3 +94,6 @@ export const useBooksContext = () => {
   const context = useContext(BooksContext);
   return context;
 };
+
+
+

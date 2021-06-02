@@ -1,6 +1,6 @@
 import { Button, Form, Header, Icon, Modal } from 'semantic-ui-react';
-import { formOptions } from '../../../utils/form';
-import { statusOptions } from '../../../utils/status';
+import { formOptions } from '../../../utils/book-form';
+import { statusOptions } from '../../../utils/book-status';
 
 export const BookForm = ({
   showModal,
@@ -17,6 +17,8 @@ export const BookForm = ({
   bookStatus,
   handleBookStatus,
   modalActionButton,
+  handleReadersName,
+  readersName,
   bookForm,
   handleBookForm,
 }) => {
@@ -35,6 +37,15 @@ export const BookForm = ({
       <Header icon={headerIconName} content={headerContent} />
       <Modal.Content>
         <Form>
+          <Form.Field>
+            <Form.Input
+              fluid
+              label={`Reader's Name`}
+              value={readersName}
+              placeholder={readersName}
+              onChange={(_, { value }) => handleReadersName(value)}
+            />
+          </Form.Field>
           <Form.Group widths='equal'>
             <Form.Field>
               <Form.Input

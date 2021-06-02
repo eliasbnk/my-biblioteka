@@ -9,6 +9,7 @@ export const AddNewBook = () => {
   const [newBookImageURL, setNewBookImageURL] = useState('');
   const [newBookStatus, setNewBookStatus] = useState('');
   const [newBookTitle, setNewBookTitle] = useState('');
+  const [readersName, setReadersName] = useState('');
   const [newBookForm, setNewBookForm] = useState('');
   const [showModal, setShowModal] = useState(false);
 
@@ -17,6 +18,7 @@ export const AddNewBook = () => {
   const handleBookStatus = (value) => setNewBookStatus(value);
   const handleBookTitle = (value) => setNewBookTitle(value);
   const handleBookForm = (value) => setNewBookForm(value);
+  const handleReadersName = (value) => setReadersName(value);
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
@@ -41,6 +43,7 @@ export const AddNewBook = () => {
   const handleAddNewBook = async () => {
     try {
       await addNewBook({
+        reader: readersName,
         author: newBookAuthor,
         imageURL: newBookImageURL,
         status: newBookStatus,
@@ -78,6 +81,8 @@ export const AddNewBook = () => {
         handleBookStatus={handleBookStatus}
         bookForm={newBookForm}
         handleBookForm={handleBookForm}
+        readersName={readersName}
+        handleReadersName={handleReadersName}
         modalActionButton={
           <Button positive onClick={handleAddNewBook}>
             Add Book

@@ -1,4 +1,5 @@
 import { Button, Card, Image } from 'semantic-ui-react';
+import { useBooksContext } from '../../lib/books-context';
 import { RemoveBook } from '../remove-book';
 
 export const Book = ({
@@ -7,6 +8,14 @@ export const Book = ({
   buttonActionTwo,
   book,
 }) => {
+  const {
+    notStartedBookCount,
+    inProgressBookCount,
+    finishedBookCount,
+    handleNotStartedBookCount,
+    handleInProgressBookCount,
+    handleFinishedBookCount,
+  } = useBooksContext();
   const handleCompleted = async () => {
     try {
       await editBookStatus(book?.id, {
@@ -15,6 +24,8 @@ export const Book = ({
       });
     } catch ({ message }) {
       alert(`Error @ handleCompleted, Error:${message}`);
+    } finally {
+      handleFinishedBookCount(finishedBookCount + 1);
     }
   };
 
@@ -26,6 +37,8 @@ export const Book = ({
       });
     } catch ({ message }) {
       alert(`Error @ handleReRead, Error:${message}`);
+    } finally {
+      handleNotStartedBookCount(notStartedBookCount + 1);
     }
   };
 
@@ -37,15 +50,20 @@ export const Book = ({
       });
     } catch ({ message }) {
       alert(`Error @ handleReading, Error:${message}`);
+    } finally {
+      handleInProgressBookCount(inProgressBookCount + 1);
     }
   };
-  console.log(book.imageURL);
+
   return (
     <Card style={{ marginLeft: 'auto', marginRight: 'auto' }}>
       <Image src={book?.imageURL} wrapped ui={false} />
       <Card.Content>
         <Card.Header>{book?.title}</Card.Header>
         <Card.Meta>{book?.author}</Card.Meta>
+        <Card.Description>
+          {book?.format === 'audio' ? 'Listener:' : 'Reader:'} {book?.reader}
+        </Card.Description>
         <div
           style={{
             marginTop: 10,

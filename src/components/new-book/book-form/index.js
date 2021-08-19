@@ -17,8 +17,6 @@ export const BookForm = ({
   bookStatus,
   handleBookStatus,
   modalActionButton,
-
-  ,
   bookForm,
   handleBookForm,
 }) => {

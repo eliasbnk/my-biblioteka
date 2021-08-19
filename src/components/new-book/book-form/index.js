@@ -17,8 +17,8 @@ export const BookForm = ({
   bookStatus,
   handleBookStatus,
   modalActionButton,
-  handleReadersName,
-  readersName,
+
+  ,
   bookForm,
   handleBookForm,
 }) => {
@@ -37,15 +37,6 @@ export const BookForm = ({
       <Header icon={headerIconName} content={headerContent} />
       <Modal.Content>
         <Form>
-          <Form.Field>
-            <Form.Input
-              fluid
-              label={`Reader's Name`}
-              value={readersName}
-              placeholder={readersName}
-              onChange={(_, { value }) => handleReadersName(value)}
-            />
-          </Form.Field>
           <Form.Group widths='equal'>
             <Form.Field>
               <Form.Input

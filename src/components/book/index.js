@@ -61,9 +61,6 @@ export const Book = ({
       <Card.Content>
         <Card.Header>{book?.title}</Card.Header>
         <Card.Meta>{book?.author}</Card.Meta>
-        <Card.Description>
-          {book?.format === 'audio' ? 'Listener:' : 'Reader:'} {book?.reader}
-        </Card.Description>
         <div
           style={{
             marginTop: 10,

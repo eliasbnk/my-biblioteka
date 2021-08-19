@@ -1,9 +1,10 @@
 import { useBooksContext } from '../../lib/books-context';
+import { LoadingScreen } from '../../utils/loader';
 import { Book } from '../book';
 
 export const BooksInProgress = ({ booksList, editBookStatus }) => {
   const { query, handleInProgressBookCount } = useBooksContext();
-  if (booksList === undefined) return <h1>Loading...</h1>;
+  if (booksList === undefined) return <LoadingScreen />;
   return (
     <>
       <div style={{ marginTop: 200 }} />

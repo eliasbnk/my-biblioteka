@@ -62,7 +62,6 @@ export const BooksContextProvider = ({ children }) => {
 
   const changeHandler = (event) => {
     setQuery(event.target.value.toLowerCase());
-
   };
 
   const debouncedChangeHandler = useMemo(
@@ -94,6 +93,3 @@ export const useBooksContext = () => {
   const context = useContext(BooksContext);
   return context;
 };
-
-
-

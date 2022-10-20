@@ -44,7 +44,7 @@ export const ConfirmationModal = ({
           <Button color={cancelButtonColor} onClick={handleButtonCancel}>
             {buttonCancelContent}
           </Button>
-          <Button color={actionButtonColor} onClick={handleButtonAction}>
+          <Button disabled={true} color={actionButtonColor} onClick={handleButtonAction}>
             {buttonActionContent}
           </Button>
         </Modal.Actions>

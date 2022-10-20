@@ -97,7 +97,7 @@ export const Book = ({
           )}
         </div>
       </Card.Content>
-      <RemoveBook disabled book={book} />
+      <RemoveBook book={book} />
     </Card>
   );
 };

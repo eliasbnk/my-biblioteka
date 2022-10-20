@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { NavBar } from './components/navbar';
 import { NotStartedBooks } from './components/not-started-books';
 import { BooksInProgress } from './components/books-in-progress';
@@ -10,23 +10,17 @@ export const App = () => {
   return (
     <div>
       <NavBar />
-      <Switch>
-        <Route exact path='/'>
-          <NotStartedBooks
+      <Routes>
+        <Route path='/'element={ <NotStartedBooks
             booksList={booksList}
             editBookStatus={editBookStatus}
-          />
-        </Route>
-        <Route path='/in-progress'>
-          <BooksInProgress
+          />}/>
+        <Route path='/in-progress' element={ <BooksInProgress
             booksList={booksList}
             editBookStatus={editBookStatus}
-          />
-        </Route>
-        <Route path='/finished'>
-          <FinishedBooks booksList={booksList} editBookStatus={editBookStatus} />
-        </Route>
-      </Switch>
+          /> } />
+        <Route path='/finished' element={<FinishedBooks booksList={booksList} editBookStatus={editBookStatus} />} />
+      </Routes>
     </div>
   );
 };

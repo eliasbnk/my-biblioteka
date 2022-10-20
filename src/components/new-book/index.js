@@ -79,7 +79,7 @@ export const AddNewBook = () => {
         bookForm={newBookForm}
         handleBookForm={handleBookForm}
         modalActionButton={
-          <Button positive onClick={handleAddNewBook}>
+          <Button disabled={true} positive onClick={handleAddNewBook}>
             Add Book
           </Button>
         }

@@ -9,7 +9,7 @@ export const NotStartedBooks = ({ booksList, editBookStatus, addNewBook }) => {
     <>
       <div style={{ marginTop: 200 }} />
       <div>
-        <AddNewBook addNewBook={addNewBook} />
+        <AddNewBook disabled addNewBook={addNewBook} />
       </div>
 
       {booksList
